@@ -20,7 +20,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
     steps:
+      - name: Dummy artifact upload setup (prevent error)
+        uses: actions/upload-artifact@v3
+        with:
+          name: dummy
+          path: ./non-existent-folder
+          if-no-files-found: ignore
+
       - name: Checkout source
         uses: actions/checkout@v3
 
