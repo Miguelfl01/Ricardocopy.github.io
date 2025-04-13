@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # o la rama principal que uses
+      - main  # O tu rama principal
 
 permissions:
   contents: read
@@ -26,13 +26,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v5  # ¡Actualizado!
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3  # ¡Actualizado!
         with:
-          path: .  # Usa "." si tu index.html está en la raíz
+          path: .  # Cambia si tus archivos están en otra carpeta (como ./docs)
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4  # ¡Actualizado!
